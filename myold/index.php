@@ -5,6 +5,8 @@
  * Date: 29.04.16
  * Time: 19:06
  */
+ 
+ echo "test";
 
 $myold  = 30;
 $diff   = 35 - $myold;
