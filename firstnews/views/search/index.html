@@ -1,0 +1,26 @@
+<br/>
+<div class="panel panel-default ">
+    <div class="panel-heading">Все новости, содержащие часть <strong><?=$data['query']?></strong> в тегах:</div>
+    <?php if(isset($data['result']) && !empty($data['result'])){ ?>
+        <div class="panel-body">
+            <?php foreach($data['request'] as $item){ ?>
+              <a href="/news/view/<?=$item['alias']?>"><?=$item['title']?></a> - <i><?=$item['tags']?></i><br/>
+            <?php } ?>
+        </div>
+    <?php } else { ?>
+        <div class="panel-body">
+            По данному запросу новостей не найдено. <br/>
+            Попробуйте ввести например "финан" или "погод".
+        </div>
+    <?php } ?>
+</div>
+
+<ul class="pagination">
+    <?php foreach ($data['pgn'] as $button) :
+    if ($button->isActive) : ?>
+    <li><a href = "?query=<?=$data['query']?>&page=<?=$button->page?>"><?=$button->text?></a></li>
+    <?php else : ?>
+    <li class="active"><a href=""><?=$button->text?></a></li>
+    <?php endif;
+endforeach; ?>
+</ul>
