@@ -1,0 +1,19 @@
+<h1><?=$data['news']['title']?></h1>
+<img class="img-thumbnail" style="max-width: 300px;" src="/img/<?php echo (!empty($data['news']['image'])) ? $data['news']['image'] : 'noimage.jpg'; ?>"><br/><br/>
+<br/>
+<?=$data['news']['content']?>
+<br/>
+<br/>
+
+<ul class="list-group">
+    <li class="list-group-item list-group-item-success">Просматривают сейчас: <span id="watch_now"></span></li>
+    <li class="list-group-item list-group-item-warning">Количество просмотров <i>(TODO)</i>: <span id="watch_rand"><?php echo (isset($data['all'])) ? $data['all'] : '1';?></span></li>
+    <li class="list-group-item list-group-item-info">Количество просмотров <b>без</b> прибавления рендома: <span id="watch"><?php echo (isset($data['all'])) ? $data['all'] : '1';?></span></li>
+</ul>
+
+<?php if(isset($data['tags']) && !empty($data['tags'][0])) :?>
+<div class="panel panel-default ">
+    <div class="panel-heading">Теги:</div>
+    <div class="panel-body"><?php foreach($data['tags'] as $tags) { echo "<a href='/tags/?tag=".$tags."'>#".$tags."</a></span>  ";} ?></div>
+</div>
+<?php endif;?>

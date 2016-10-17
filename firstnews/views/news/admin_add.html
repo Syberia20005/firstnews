@@ -1,0 +1,50 @@
+<h3>Добавление новости</h3><br/>
+<form action="" method="post" ENCTYPE="multipart/form-data">
+    <div class="form-group">
+        <label for="cats">Выбор категории:</label>
+        <select id="cats" name="cats" class="form-control" >
+            <?php if(isset($data['cats'])) { ?>
+            <?php for($i = 0; $i < count($data['cats']); $i++){ ?>
+                <option value="<?=$data['cats'][$i]['id']?>" > <?=$data['cats'][$i]['title']?> </option>
+            <?php } ?>
+            <?php } ?>
+        </select>
+    </div>
+    <hr>
+    <div class="form-group">
+        <label for="alias">Alias</label>
+        <input type="text" id="alias" name="alias" value="" class="form-control" />
+    </div>
+    <hr>
+    <div class="form-group">
+        <label for="title">Заголовок</label>
+        <input type="text" id="title" name="title" value="" class="form-control" />
+    </div>
+    <hr>
+    <div class="form-group">
+        <label for="image">Иконка новости</label>
+        <input type="file" name="image" id="image" value="" class="form-control"/>
+    </div>
+    <hr>
+    <div class="form-group">
+        <label for="adt">Анонс</label>
+        <textarea name="adt" id="adt" class="form-control"></textarea>
+    </div>
+    <hr>
+    <div class="form-group">
+        <label for="content">Содержимое новости</label>
+        <textarea name="content" id="content" class="form-control"></textarea>
+    </div>
+    <hr>
+    <div class="form-group">
+        <label for="tags">Теги (слова, разделенные запятыми)</label>
+        <input type="text" id="tags" name="tags" value="" class="form-control" />
+    </div>
+    <hr>
+    <div class="form-group">
+        <label for="is_published">Опубликована?</label>
+        <input type="checkbox" name="is_published" id="is_published" checked="checked" />
+    </div>
+    <hr>
+    <input type="submit" class="btn btn-success" />
+</form>

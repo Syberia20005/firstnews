@@ -1,0 +1,24 @@
+<br/>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h4><?=$data['cat']['title']?></h4>
+        <?=$data['cat']['description']?>
+    </div>
+
+    <div class="panel-body">
+
+        <?php for($i = 0; $i < count($data['news']); $i++) { ?>
+            <a href="/news/view/<?=$data['news'][$i]['alias']?>">"<?=$data['news'][$i]['title']?>"</a><br/>
+        <?php } ?>
+    </div>
+</div>
+
+<ul class="pagination">
+<?php foreach ($data['pgn'] as $button) :
+    if ($button->isActive) : ?>
+        <li><a href = '?page=<?=$button->page?>'><?=$button->text?></a></li>
+    <?php else : ?>
+        <li class="active"><a href=""><?=$button->text?></a></li>
+    <?php endif;
+endforeach; ?>
+</ul>

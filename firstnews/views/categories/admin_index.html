@@ -1,0 +1,20 @@
+<h3>Categories</h3><br/>
+<table class="table table-stiped" style="width: 600px;">
+    <?php foreach($data['categories'] as $cat_data) { ?>
+    <tr>
+        <td><b><?=$cat_data['title']?></b><br/>
+            <i><?=$cat_data['description']?></i>
+        </td>
+        <td align="right">
+            <a href="/admin/categories/edit/<?=$cat_data['id']?>"><button class="btn btn-sm btn-primary">edit</button></a>
+            <a href="/admin/categories/delete/<?=$cat_data['id']?>" onclick="return confirmDelete();"><button class="btn btn-sm btn-warning">delete</button></a>
+        </td>
+
+        <?php } ?>
+</table>
+<br/>
+
+<div>
+    <a href="/admin/categories/add/<?=$cat_data['id']?>"><button class="btn btn-sm btn-success">New category</button></a>
+</div>
+

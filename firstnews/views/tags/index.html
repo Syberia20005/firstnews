@@ -1,0 +1,12 @@
+<br/>
+<div class="panel panel-default ">
+    <div class="panel-heading">Все новости по тегу <strong><?=$data['tag']?></strong>:</div>
+    <div class="panel-body">
+        <?php foreach($data['news_by_tag'] as $tags_news){ ?>
+            <a href="/news/view/<?=$tags_news['alias']?>"><?=$tags_news['title']?></a><br/>
+            <div class="panel-body">
+                <?=$tags_news['adt']?>
+            </div>
+        <?php } ?>
+    </div>
+</div>
